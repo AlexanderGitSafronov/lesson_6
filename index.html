@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       // 1.cloneObj(obj) вернет копию объекта
+    function cloneObj(obj) {
+     var objCopy = {}; 
+     var key;
+
+    for (key in obj) {
+        objCopy[key] = obj[key]; 
+         }
+    return objCopy;
+    }
+
+    var obj = {
+     name : 'Artem',
+     lastName : 'Hovrashkov',
+     age : 25,
+  }
+
+console.log (obj);
+console.log(cloneObj(obj));
+
+       // 2.getValues(obj, separator)  вернет строку, в кот каждое значение перечислено через разделитель
+     function  getValues(obj, separator) {
+         var string = '';
+         for (var key in obj) {
+            string += obj[key] + separator
+         };
+         return string.substring(0, string.length - separator.length)
+     }
+
+
+       var obj = {
+        name : 'Artem',
+        lastName : 'Hovrashkov',
+        age : 25,
+    }
+    console.log(getValues(obj, '***'));
+    
+    // 3.getKeys(obj, separator)  вернет строку, в кот каждый ключ перечислен через разделитель
+    function getKeys(obj, separator) {
+        var string = '';
+            for (var key in obj) {
+                string += [key] + separator
+            };
+            return string.substring(0, string.length - separator.length) 
+       }
+
+       var obj = {
+        name : 'Artem',
+        lastName : 'Hovrashkov',
+        age : 25,
+}
+console.log(getKeys(obj, '***')); 
+
+    // 4.getEntries(obj)  вернет строку, в кот каждая пара ключ: значение указаны с новой строки
+    function  getEntries(obj) {
+         var string = '';
+         for (var key in obj) {
+            string += [key] + ' :' + ' ' + obj[key] + '\n'
+
+         };
+         return string//.substring(0, string.length - separator.length)
+     }
+
+
+       var obj = {
+        name : 'Artem',
+        lastName : 'Hovrashkov',
+        age : 25,
+    }
+    console.log(getEntries(obj));
+    </script>
+</body>
+</html>
